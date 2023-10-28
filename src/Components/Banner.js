@@ -161,7 +161,7 @@ function Banner() {
 
             </div>
             <div class="banner">
-                {
+                {/* {
                     data.map(({ image, bgimage, id }) => {
                         return (
                             <>
@@ -178,7 +178,7 @@ function Banner() {
                             </>
                         )
                     })
-                }
+                } */}
                 <div class="content the-little-mermaid active">
 
                     <img src={image5} class="movie-title" ></img>
@@ -271,19 +271,26 @@ function Banner() {
                 </div>
                 <div class="carousel-box">
                     <div class="carousel">
-                        {
+                    <div class="carousel-item" onClick="changeBg('bg-little-mermaid.jpg', 'the-little-mermaid');">
+                    <img src={image15} alt=""/>
 
-                            data.map(({ element }) => {
-                                <div class="carousel-item"
-                                >
-                                    console.log("story " + name + " story");
-                                    {/* console.log('This is data' + element) */}
-                                    {/* <img src={element.image} alt=""></img> */}
-                                </div>
-                            })
-                        }
+                </div>
+                <div class="carousel-item" onClick="changeBg('bg-65.jpeg', 'bg-65');">
+                    <img src={image7} alt=""/>
 
+                </div>
+                <div class="carousel-item" onClick="changeBg('bg-the-covenant.jpeg', 'the-covenant');">
+                    <img src={image14} alt=""/>
 
+                </div>
+                <div class="carousel-item" onClick="changeBg('bg-the-black-demon.jpeg', 'the-black-demo');">
+                    <img src={image13} alt=""/>
+
+                </div>
+                <div class="carousel-item" onClick="changeBg('bg-the-tank.jpeg', 'the-tank');">
+                    <img src={image16} alt=""/>
+
+                </div>
                     </div>
                 </div>
                 <a href="#" class="play" onClick={{}
