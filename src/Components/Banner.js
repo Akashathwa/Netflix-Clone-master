@@ -123,23 +123,7 @@ function Banner() {
 
 
         <div >
-            {/* <div className='header'>
-                <a href="#" class="logo">Movies</a>
-                <ul class="nav">
-                    <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
-                    <li><a href="#">Adults</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">Trend</a></li>
-                    <li><a href="#">My List</a></li>
-
-                </ul>
-                <div class="search">
-                    <input type="text" placeholder="search"></input>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                </div>
-
-            </div> */}
+    
             <div class="banner">
 
                 <div>
