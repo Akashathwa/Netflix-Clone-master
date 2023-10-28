@@ -26,12 +26,7 @@ import video from './video/65.mp4';
 
 
 function Banner() {
-    const [movie, setMovie] = useState([]);
-    const [backgroudData, imageChange] = useState(image5);
-    const [trailerurl, setTrailerurl] = useState("");
-    // function changeImageUrl(titleUrl) { 
-    //     imageChange();
-    // }
+
 
     useEffect(() => {
 
@@ -49,64 +44,6 @@ function Banner() {
 
 
     }, [])
-
-    function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-    };
-
-    const handleClick = (movie) => {
-
-        if (trailerurl) {
-            setTrailerurl("");
-        } else {
-            movieTrailer(movie?.name || "")
-                .then(url => {
-                    const urlParams = new URLSearchParams(new URL(url).search);
-                    setTrailerurl(urlParams.get('v'));
-
-                }).catch(error => console.log(error))
-        }
-    };
-
-    const opts = {
-        height: "390",
-        width: "100%",
-        playerVars: {
-            autoplay: 1,
-        },
-    };
-    // const backgroudData = {
-    //     titleUrl: image5,
-    //     titleText:'',
-    //     ImageUrl: '',
-
-    // };
-
-
-
-    // const (backgroudData,setimage = useState(image4)
-
-    // const changeBgUrl= (title)=>{
-    //     console.log('This url is clicked');
-    //     imageChange(image3);
-    // }
-
-    function changeBg(titleUrl, imageUrl) {
-        // imageChange();
-        // console.log('bg');
-        // const banner = document.querySelector('.banner');
-
-        // const contents = document.querySelectorAll('.content');
-        // banner.style.background = `url("slider/${bg}")`;
-        // banner.style.backgroundSize = 'cover';
-        // banner.style.backgroundPosition = 'center';
-        // contents.forEach(content => {
-        //     content.classList.remove('active');
-        //     if (content.classList.contains(title)) {
-        //         content.classList.add('active');
-        //     }
-        // });
-    };
     const data = [
         {
             id: '1',
@@ -179,7 +116,6 @@ function Banner() {
         },
 
     ];
-    const [toggled, setToggled] = useState()
 
 
 
@@ -222,6 +158,7 @@ function Banner() {
                                 <a href="#"><i className="fa-solid fa-plus"></i>My List</a>
                             </div>
                         </div>
+
                     ))}
                 </div>
 
@@ -233,57 +170,17 @@ function Banner() {
                                 className="carousel-item"
                                 onClick={() => {
                                     console.log(item.name);
+
                                     // return changeBg(item.image, item.name);
                                 }}
                             >
                                 <img src={item.image} alt="" />
                             </div>
                         ))}
-                        {/* <div class="carousel-item" onClick="changeBg('bg-little-mermaid.jpg', 'the-little-mermaid');">
-                            <img src={image15} alt="" />
-                        </div>
-                        <div class="carousel-item" onClick="changeBg('bg-65.jpeg', 'bg-65');">
-                            <img src={image7} alt="" />
 
-                        </div>
-                        <div class="carousel-item" onClick="changeBg('bg-the-covenant.jpeg', 'the-covenant');">
-                            <img src={image14} alt="" />
-
-                        </div>
-                        <div class="carousel-item" onClick="changeBg('bg-the-black-demon.jpeg', 'the-black-demo');">
-                            <img src={image13} alt="" />
-
-                        </div>
-                        <div class="carousel-item" onClick="changeBg('bg-the-tank.jpeg', 'the-tank');">
-                            <img src={image16} alt="" />
-
-                        </div> */}
                     </div>
                 </div>
-                <a href="#" class="play" onClick={{}
-                    // toggleVideo()
-                }><i class="fa-sharp fa-regular fa-circle-play"></i>Watch Trailer</a>
-                <ul class="sci">
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-
-
-                </ul>
-
-
-
             </div>
-            <div class="trailer">
-                <video src={video} muted controls="true" autoplay="true"></video>
-                <img class="close" src={image1} alt="
-        " onClick={
-                        {}
-                        // toggleVideo()
-                    } />
-
-            </div>
-
         </div>
     )
 }
