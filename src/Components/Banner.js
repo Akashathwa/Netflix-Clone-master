@@ -26,6 +26,21 @@ import video from './video/65.mp4';
 
 
 function Banner() {
+    const [movie, setMovie] = useState([]);
+    const [selectedItem, setSelectedItem] = useState({
+        id: '1',
+        className: 'active',
+        image: image15,
+        name: 'Shahryar',
+        movieTitle: 'Movie Title 2',
+        year: '2023',
+        ageRating: '15+',
+        duration: '2h 5min',
+        genre: 'Action',
+        description: 'Lorem Ipsum is simply dummy text...',
+        movieTitleimage: image5,
+        bgImg: image8,
+    });
 
 
     useEffect(() => {
@@ -44,6 +59,10 @@ function Banner() {
 
 
     }, [])
+    const handleCarouselItemClick = (item) => {
+        
+        setSelectedItem(item);
+    };
     const data = [
         {
             id: '1',
@@ -120,52 +139,41 @@ function Banner() {
 
 
     return (
-
-
-        <div >
-    
-            <div class="banner">
-
-                <div>
-                    {data.map((item, index) => (
-                        <div key={index} className={`content ${item.className}`}>
-                            <img src={item.movieTitleimage} className="movie-title" alt="Movie Title" />
-                            <h4>
-                                <span>{item.year}</span>
-                                <span><i>{item.ageRating}</i></span>
-                                <span>{item.duration}</span>
-                                <span>{item.genre}</span>
-                            </h4>
-                            <p>{item.description}</p>
-                            <div className="button">
-                                <a href="#"><i className="fa-solid fa-play"></i>Watch</a>
-                                <a href="#"><i className="fa-solid fa-plus"></i>My List</a>
-                            </div>
-                        </div>
-
-                    ))}
+        <div class="banner">
+            <div className={`content ${selectedItem.className}`}>
+                <img src={selectedItem.movieTitleimage} className="movie-title" alt="Movie Title" />
+                <h4>
+                    <span>{selectedItem.year}</span>
+                    <span><i>{selectedItem.ageRating}</i></span>
+                    <span>{selectedItem.duration}</span>
+                    <span>{selectedItem.genre}</span>
+                </h4>
+                <p>{selectedItem.description}</p>
+                <div className="button">
+                    <a href="#"><i className="fa-solid fa-play"></i>Watch</a>
+                    <a href="#"><i className="fa-solid fa-plus"></i>My List</a>
                 </div>
+            </div>
 
-                <div class="carousel-box">
-                    <div class="carousel">
-                        {data.map((item, index) => (
-                            <div
-                                key={index}
-                                className="carousel-item"
-                                onClick={() => {
-                                    console.log(item.name);
+            <div class="carousel-box">
+                <div class="carousel">
+                    {data.map((item, index) => (
+                        <div
+                            key={index}
+                            className="carousel-item"
+                            onClick={() => {
+                                console.log(item.name);
+                                handleCarouselItemClick(item);
+                            }}
+                        >
+                            <img src={item.image} alt="" />
+                        </div>
+                    ))}
 
-                                    // return changeBg(item.image, item.name);
-                                }}
-                            >
-                                <img src={item.image} alt="" />
-                            </div>
-                        ))}
-
-                    </div>
                 </div>
             </div>
         </div>
+
     )
 }
 
