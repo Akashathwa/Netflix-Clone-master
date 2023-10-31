@@ -1,5 +1,7 @@
 import './App.css';
+import Home from './Components/Banner';
 import Banner from './Components/Banner';
+import H from './Components/Banner';
 import Navbar from './Components/Navbar';
 import Row from './Components/Row';
 import requests from './requests';
@@ -10,7 +12,7 @@ function App() {
   return (
     <div className="app">
 
-      {/* <Navbar /> */}
+      <Navbar />
       
       <Banner />
        

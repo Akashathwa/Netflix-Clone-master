@@ -24,7 +24,6 @@ import video from './video/65.mp4';
 
 
 
-
 function Banner() {
     const [movie, setMovie] = useState([]);
     const [selectedItem, setSelectedItem] = useState({
@@ -41,24 +40,18 @@ function Banner() {
         movieTitleimage: image5,
         bgImg: image8,
     });
+    async function fetchData() {
+        const request = await axios.get(requests.fetchNetflixOriginals);
 
+        setMovie(
+            request.data.results[
+            Math.floor(Math.random() * request.data.results.length - 1)
+            ]
+        );
+        return request;
 
-    useEffect(() => {
+    } fetchData();
 
-        async function fetchData() {
-            const request = await axios.get(requests.fetchNetflixOriginals);
-
-            setMovie(
-                request.data.results[
-                Math.floor(Math.random() * request.data.results.length - 1)
-                ]
-            );
-            return request;
-
-        } fetchData();
-
-
-    }, [])
     const handleCarouselItemClick = (item) => {
         
         setSelectedItem(item);
@@ -135,26 +128,21 @@ function Banner() {
         },
 
     ];
-
-
-
-    return (
+    return(
         <div class="banner">
-            <div className={`content ${selectedItem.className}`}>
-                <img src={selectedItem.movieTitleimage} className="movie-title" alt="Movie Title" />
-                <h4>
-                    <span>{selectedItem.year}</span>
-                    <span><i>{selectedItem.ageRating}</i></span>
-                    <span>{selectedItem.duration}</span>
-                    <span>{selectedItem.genre}</span>
-                </h4>
-                <p>{selectedItem.description}</p>
-                <div className="button">
-                    <a href="#"><i className="fa-solid fa-play"></i>Watch</a>
-                    <a href="#"><i className="fa-solid fa-plus"></i>My List</a>
-                </div>
+        <div className={`content ${selectedItem.className}`}>
+            <img src={selectedItem.movieTitleimage} className="movie-title" alt="Movie Title" />
+            <h4>
+                <span>{selectedItem.year}</span>
+                <span><i>{selectedItem.ageRating}</i></span>
+                <span>{selectedItem.duration}</span>
+                <span>{selectedItem.genre}</span>
+            </h4>
+            <p>{selectedItem.description}</p>
+            <div className="button">
+                <a href="#"><i className="fa-solid fa-play"></i>Watch</a>
+                <a href="#"><i className="fa-solid fa-plus"></i>My List</a>
             </div>
-
             <div class="carousel-box">
                 <div class="carousel">
                     {data.map((item, index) => (
@@ -173,8 +161,7 @@ function Banner() {
                 </div>
             </div>
         </div>
-
+        </div>
     )
 }
-
 export default Banner
